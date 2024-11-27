@@ -21,9 +21,8 @@ Para ejecutar este proyecto, necesitarás tener Python 3.12 (o una versión supe
 Puedes instalar las dependencias necesarias utilizando `pip`. Asegúrate de tener un entorno virtual configurado para evitar conflictos con otras dependencias globales.
 
 pip install sqlalchemy customtkinter
-Estructura del Proyecto
-bash
-Copiar código
+
+#Estructura del Proyecto
 Proyecto/
 │
 ├── crud/                  # Carpeta que contiene los archivos de lógica del CRUD
@@ -35,41 +34,37 @@ Proyecto/
 ├── app.py                 # Archivo principal de la aplicación
 ├── database.py            # Configuración de la base de datos
 └── README.md              # Este archivo
-Instalación y Configuración
+
+#Instalación y Configuración
 Clona el repositorio:
 
-bash
 Copiar código
 git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
 Crea un entorno virtual:
 
-´´bash
 Copiar código
 python -m venv venv
 Activa el entorno virtual:
 
 En Windows:
-bash
 Copiar código
 .\venv\Scripts\activate
+
 En macOS/Linux:
-bash
 Copiar código
 source venv/bin/activate
 Instala las dependencias:
 
-bash
 Copiar código
 pip install -r requirements.txt
 Configura la base de datos:
 
 La base de datos se maneja a través de SQLAlchemy y se crea automáticamente cuando se ejecuta la aplicación.
-Uso
+
+#Uso
 Ejecuta la aplicación con el siguiente comando:
 
-bash
-Copiar código
 python app.py
 La interfaz gráfica te permitirá interactuar con la base de datos:
 
@@ -77,7 +72,8 @@ Crear cliente: Ingresa el nombre y correo de un nuevo cliente.
 Ver clientes: Visualiza la lista de clientes existentes.
 Actualizar cliente: Modifica los datos de un cliente existente.
 Eliminar cliente: Elimina un cliente de la base de datos.
-Funcionalidad del CRUD
+
+#Funcionalidad del CRUD
 Crear Cliente
 Puedes agregar un nuevo cliente proporcionando el nombre y el correo electrónico. La aplicación verificará si el correo ya existe en la base de datos antes de crear el cliente.
 
