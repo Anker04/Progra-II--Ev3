@@ -35,15 +35,13 @@ Proyecto/
 ├── database.py            # Configuración de la base de datos
 └── README.md              # Este archivo
 
-#Instalación y Configuración
+## Instalación y Configuración
 Clona el repositorio:
 
-Copiar código
 git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
 Crea un entorno virtual:
 
-Copiar código
 python -m venv venv
 Activa el entorno virtual:
 
@@ -56,13 +54,12 @@ Copiar código
 source venv/bin/activate
 Instala las dependencias:
 
-Copiar código
 pip install -r requirements.txt
 Configura la base de datos:
 
 La base de datos se maneja a través de SQLAlchemy y se crea automáticamente cuando se ejecuta la aplicación.
 
-#Uso
+## Uso
 Ejecuta la aplicación con el siguiente comando:
 
 python app.py
@@ -73,7 +70,7 @@ Ver clientes: Visualiza la lista de clientes existentes.
 Actualizar cliente: Modifica los datos de un cliente existente.
 Eliminar cliente: Elimina un cliente de la base de datos.
 
-#Funcionalidad del CRUD
+## Funcionalidad del CRUD
 Crear Cliente
 Puedes agregar un nuevo cliente proporcionando el nombre y el correo electrónico. La aplicación verificará si el correo ya existe en la base de datos antes de crear el cliente.
 
@@ -86,7 +83,7 @@ Puedes actualizar el nombre y/o correo electrónico de un cliente existente. Si 
 Eliminar Cliente
 Permite eliminar un cliente específico basado en su correo electrónico. Si el cliente no existe, se mostrará un mensaje de error.
 
-Tecnologías Utilizadas
+## Tecnologías Utilizadas
 Python: Lenguaje principal del proyecto.
 SQLAlchemy: ORM utilizado para interactuar con la base de datos.
 Tkinter: Biblioteca para crear la interfaz gráfica.
