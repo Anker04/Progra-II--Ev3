@@ -5,9 +5,9 @@ from datetime import datetime
 
 class Cliente(Base):
     __tablename__ = "clientes"
-    id = Column(Integer, primary_key=True, index=True)
+    correo = Column(Integer, primary_key=True)
     nombre = Column(String, nullable=False)
-    correo = Column(String, unique=True, nullable=False)
+    pedido = relationship("Pedido", back_populates="cliente")
 
 class Ingrediente(Base):
     __tablename__ = "ingredientes"
@@ -30,4 +30,4 @@ class Pedido(Base):
     cliente_id = Column(Integer, ForeignKey("clientes.id"))
     fecha_creacion = Column(DateTime, default=datetime.utcnow)
     total = Column(Float, nullable=False)
-    cliente = relationship("Cliente")
+    cliente = relationship("Cliente", back_populates="pedidos")
