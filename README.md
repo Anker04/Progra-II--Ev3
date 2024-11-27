@@ -20,7 +20,6 @@ Para ejecutar este proyecto, necesitarás tener Python 3.12 (o una versión supe
 
 Puedes instalar las dependencias necesarias utilizando `pip`. Asegúrate de tener un entorno virtual configurado para evitar conflictos con otras dependencias globales.
 
-```bash
 pip install sqlalchemy customtkinter
 Estructura del Proyecto
 bash
@@ -45,7 +44,7 @@ git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
 Crea un entorno virtual:
 
-bash
+´´bash
 Copiar código
 python -m venv venv
 Activa el entorno virtual:
