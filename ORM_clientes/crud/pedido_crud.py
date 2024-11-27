@@ -8,6 +8,8 @@ def crear_pedido(db: Session, cliente_id: int, total: float):
     db.refresh(nuevo_pedido)
     return nuevo_pedido
 
+
+
 def obtener_pedidos(db: Session):
     return db.query(Pedido).all()
 
