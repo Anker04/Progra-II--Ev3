@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 
 def generar_grafico_ventas_diarias(ventas_diarias):
@@ -63,12 +62,12 @@ def generar_grafico_ingredientes_mas_utilizados(ingredientes_utilizados):
 
 def obtener_graficos():
     """
-    Devuelve los gráficos generados como un arreglo.
+    Devuelve los gráficos generados como un arreglo de archivos de imagen.
     """
-    # Suponiendo que ya se tiene un diccionario de ventas, menús y ingredientes.
-    ventas_diarias = {'2024-11-01': 50, '2024-11-02': 60, '2024-11-03': 55}  # Datos de ejemplo
-    ventas_por_menu = {'Completo Italiano': 100, 'Completo Normal': 150}  # Datos de ejemplo
-    ingredientes_utilizados = {'Tomate': 80, 'Pan de Completo': 120, 'Palta': 60}  # Datos de ejemplo
+    # Datos de ejemplo para los gráficos
+    ventas_diarias = {'2024-11-01': 50, '2024-11-02': 60, '2024-11-03': 55}
+    ventas_por_menu = {'Completo Italiano': 100, 'Completo Normal': 150}
+    ingredientes_utilizados = {'Tomate': 80, 'Pan de Completo': 120, 'Palta': 60}
     
     # Llamamos a las funciones para generar los gráficos
     generar_grafico_ventas_diarias(ventas_diarias)

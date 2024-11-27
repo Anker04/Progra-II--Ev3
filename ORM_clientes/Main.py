@@ -1,7 +1,7 @@
 from database import engine
 from models import Base
 import tkinter as tk
-from tkinter import PhotoImage
+from PIL import Image, ImageTk  # Usamos Pillow para manejar imágenes .png
 from graficos import obtener_graficos
 
 def mostrar_graficos():
@@ -17,19 +17,29 @@ def mostrar_graficos():
 
     # Mostrar los gráficos en la ventana
     for i, grafico in enumerate(graficos):
-        img = PhotoImage(file=grafico)  # Cargar cada gráfico generado
-        label = tk.Label(ventana, image=img)    
-        label.grid(row=0, column=i)
-        label.image = img  # Guardar referencia a la imagen para que no se borre
+        # Abrir la imagen generada con Pillow
+        imagen = Image.open(grafico)
+        imagen_tk = ImageTk.PhotoImage(imagen)  # Convertirla a formato que Tkinter pueda mostrar
+
+        # Crear un Label para cada imagen y mostrarla
+        label = tk.Label(ventana, image=imagen_tk)    
+        label.grid(row=0, column=i, padx=10, pady=10)  # Acomodar las imágenes en una fila
+        label.image = imagen_tk  # Guardar referencia a la imagen para que no se borre
 
     # Iniciar el loop de la interfaz
     ventana.mainloop()
 
-if __name__ == "__main__":
-    # Crear las tablas en la base de datos
+def crear_tablas():
+    """
+    Crear las tablas en la base de datos.
+    """
     print("Creando tablas en la base de datos...")
     Base.metadata.create_all(bind=engine)
     print("Tablas creadas exitosamente.")
-    
-    # Mostrar los gráficos
+
+if __name__ == "__main__":
+    # Primero, crear las tablas en la base de datos
+    crear_tablas()
+
+    # Luego, mostrar los gráficos
     mostrar_graficos()

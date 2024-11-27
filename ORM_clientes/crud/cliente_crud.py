@@ -1,14 +1,12 @@
-from models import Cliente
 from sqlalchemy.orm import Session
+from models import Cliente 
 
-class Cliente_crud:
+class ClienteCrud:
     @staticmethod
     def crear_cliente(db: Session, nombre: str, correo: str):
-        cliente_existente = db.query(Cliente).filter_by(correo = correo).first()
+        cliente_existente = db.query(Cliente).filter_by(correo=correo).first()
         if cliente_existente:
-            print(f"El cliente con el correo {correo} ya existe")
-            return cliente_existente
-
+            raise ValueError(f"El cliente con el correo {correo} ya existe")
         cliente = Cliente(nombre=nombre, correo=correo)
         db.add(cliente)
         db.commit()
@@ -20,29 +18,28 @@ class Cliente_crud:
         return db.query(Cliente).all()
 
     @staticmethod
+    def obtener_cliente_por_nombre(db: Session, nombre_cliente: str):
+        return db.query(Cliente).filter(Cliente.nombre == nombre_cliente).first()
+
+    @staticmethod
     def actualizar_cliente(db: Session, correo_actual: str, nuevo_nombre: str, nuevo_correo: str = None):
-        cliente = db.query(Cliente).get(correo_actual)
+        cliente = db.query(Cliente).filter_by(correo=correo_actual).first()
         if not cliente:
-            print(f"No se encontró el cliente con el email '{correo_actual}'.")
-            return None
-        if nuevo_correo and nuevo_correo != correo_actual:
-            nuevo_cliente = Cliente(nombre=nuevo_nombre, email=nuevo_correo)
-            db.add(nuevo_cliente)
-            db.commit()
-            db.delete(cliente)
-            db.commit()
-            return nuevo_cliente
-        else:
-            cliente.nombre = nuevo_nombre
-            db.commit()
-            db.refresh(cliente)
-            return cliente
+            raise ValueError(f"No se encontró el cliente con el correo '{correo_actual}'.")
+        
+        # Actualiza solo si es necesario
+        if nuevo_correo and nuevo_correo != cliente.correo:
+            cliente.correo = nuevo_correo
+        cliente.nombre = nuevo_nombre
+        db.commit()
+        db.refresh(cliente)
+        return cliente
 
     @staticmethod
     def eliminar_cliente(db: Session, correo: str):
-        cliente = db.query(Cliente).get(correo)
-        if cliente:
-            db.delete(cliente)
-            db.commit()
-            return cliente
-        return None
+        cliente = db.query(Cliente).filter_by(correo=correo).first()
+        if not cliente:
+            raise ValueError(f"No se encontró el cliente con el correo '{correo}'.")
+        db.delete(cliente)
+        db.commit()
+        return cliente
