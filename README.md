@@ -72,23 +72,23 @@ Eliminar cliente: Elimina un cliente de la base de datos.
 
 ## Funcionalidad del CRUD
 Crear Cliente
-- **Puedes agregar un nuevo cliente proporcionando el nombre y el correo electrónico. La aplicación verificará si el correo ya existe en la base de datos antes de crear el cliente.
+- Puedes agregar un nuevo cliente proporcionando el nombre y el correo electrónico. La aplicación verificará si el correo ya existe en la base de datos antes de crear el cliente.
 
   Leer Clientes
 - **Visualiza una lista de todos los clientes almacenados en la base de datos. Los clientes se muestran con su nombre y correo electrónico.
 
 Actualizar Cliente
-- **Puedes actualizar el nombre y/o correo electrónico de un cliente existente. Si el correo se modifica, la aplicación actualizará ese campo en la base de datos.
+- Puedes actualizar el nombre y/o correo electrónico de un cliente existente. Si el correo se modifica, la aplicación actualizará ese campo en la base de datos.
 
 Eliminar Cliente
-- **Permite eliminar un cliente específico basado en su correo electrónico. Si el cliente no existe, se mostrará un mensaje de error.
+- Permite eliminar un cliente específico basado en su correo electrónico. Si el cliente no existe, se mostrará un mensaje de error.
 
 ## Tecnologías Utilizadas
-- **Python: Lenguaje principal del proyecto.
-- **SQLAlchemy: ORM utilizado para interactuar con la base de datos.
-- **Tkinter: Biblioteca para crear la interfaz gráfica.
-- **CustomTkinter: Una extensión de Tkinter para interfaces gráficas modernas.
-- **Contribuciones
+- Python: Lenguaje principal del proyecto.
+- SQLAlchemy: ORM utilizado para interactuar con la base de datos.
+- Tkinter: Biblioteca para crear la interfaz gráfica.
+- CustomTkinter: Una extensión de Tkinter para interfaces gráficas modernas.
+- Contribuciones
   ¡Las contribuciones son bienvenidas! Si deseas contribuir, sigue estos pasos:
 
 Haz un fork de este repositorio.
