@@ -29,28 +29,29 @@ class Ingrediente(Base):
 
 class Menu(Base):
     __tablename__ = "menus"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String, nullable=False)
     descripcion = Column(String)
     precio = Column(Float, nullable=False)
+
+    pedidos = relationship("PedidoMenu", back_populates="menu")  # Relación a través de PedidoMenu
 
     def __repr__(self):
         return f"<Menu(id={self.id}, nombre={self.nombre}, precio={self.precio})>"
 
 class Pedido(Base):
     __tablename__ = "pedidos"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     cliente_id = Column(Integer, ForeignKey("clientes.id"))
-    fecha_creacion = Column(DateTime, default=datetime.utcnow)
-    total = Column(Float, nullable=False)
-    
+    total = Column(Float, nullable=False)  # Asegúrate de que este campo esté presente
+    fecha = Column(DateTime, default=datetime.utcnow)
+
     cliente = relationship("Cliente", back_populates="pedidos")
-    
+
     def __repr__(self):
         return f"<Pedido(id={self.id}, cliente_id={self.cliente_id}, total={self.total})>"
-
 # Agregar una tabla intermedia si deseas manejar la relación entre Pedido y Menu
 class PedidoMenu(Base):
     __tablename__ = "pedido_menu"
